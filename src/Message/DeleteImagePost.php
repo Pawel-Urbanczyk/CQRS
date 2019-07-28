@@ -7,7 +7,7 @@ namespace App\Message;
 
 use App\Entity\ImagePost;
 
-class DeletePonkaToImage
+class DeleteImagePost
 {
     /**
      * @var ImagePost

@@ -4,8 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ImagePost;
 use App\Message\AddPonkaToImage;
-use App\Message\DeletePonkaToImage;
-use App\Photo\PhotoPonkaficator;
+use App\Message\DeleteImagePost;
 use App\Repository\ImagePostRepository;
 use App\Photo\PhotoFileManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -71,7 +70,7 @@ class ImagePostController extends AbstractController
      */
     public function delete(ImagePost $imagePost, MessageBusInterface $messageBus)
     {
-        $message = new DeletePonkaToImage($imagePost->getId());
+        $message = new DeleteImagePost($imagePost);
         $messageBus->dispatch($message);
         return new Response(null, 204);
     }
